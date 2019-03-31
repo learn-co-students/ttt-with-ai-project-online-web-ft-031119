@@ -2,7 +2,7 @@ module Players
   class Human < Player
 
     def move(board)
-      input = gets#.chomp
+      input = gets.chomp
       if board.valid_move?(input)
         board.update(input,self)
         return input

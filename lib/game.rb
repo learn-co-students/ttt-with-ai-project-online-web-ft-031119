@@ -54,16 +54,18 @@ class Game
   end
 
   def play
-    while over? == false
-      turn
-      if draw?
-        puts "Cat's Game!"
-        break
-      elsif won?
-        puts "Congratulations #{winner}!"
-        break
-      end
+
+    if won?
+      return puts "Congratulations #{winner}!"
     end
+    if draw?
+      return puts "Cat's Game!"
+    end
+    if over?
+      return true
+    end
+    turn
+    play
   end
 
 end
