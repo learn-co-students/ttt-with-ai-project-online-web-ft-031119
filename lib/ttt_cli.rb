@@ -3,8 +3,9 @@ class Cli
   def run
     intro
     select_players
-    while !@game.won?
-      @game.play
+    game.board.display
+    while !game.won?
+      game.play
     end
 
   end
@@ -36,6 +37,3 @@ class Cli
     end
   end
 end
-
-cli = Cli.new
-cli.run 

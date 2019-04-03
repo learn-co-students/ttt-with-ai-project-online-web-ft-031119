@@ -2,13 +2,8 @@ module Players
 
   class Computer < Player
     def move(board)
-      pos = rand(1..9)
-      if board.valid_move?(pos)
-        return pos.to_s
-      else
-        move
-      end
+      valid_positions = board.get_valid_cell_positions
+      return valid_positions[rand(0...valid_positions.length)] + 1
     end
   end
-
 end

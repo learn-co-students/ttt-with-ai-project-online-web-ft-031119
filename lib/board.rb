@@ -9,11 +9,11 @@ class Board
   end
 
   def display
-    puts " #{@cells[0]} | #{@cells[1]} | #{@cells[2]} "
+    puts " #{@cells[6]} | #{@cells[7]} | #{@cells[8]} "
     puts "-----------"
     puts " #{@cells[3]} | #{@cells[4]} | #{@cells[5]} "
     puts "-----------"
-    puts " #{@cells[6]} | #{@cells[7]} | #{@cells[8]} "
+    puts " #{@cells[0]} | #{@cells[1]} | #{@cells[2]} "
   end
 
   def position(user_input)
@@ -38,6 +38,16 @@ class Board
 
   def update(position, player)
     @cells[position.to_i - 1] = player.token
+  end
+
+  def get_valid_cell_positions
+    valid_positions = []
+    @cells.each_with_index do |cell,index|
+      if @cells[index] == " "
+        valid_positions << index
+      end
+    end
+    return valid_positions
   end
 
 end
